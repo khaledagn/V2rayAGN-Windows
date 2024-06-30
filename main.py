@@ -16,6 +16,8 @@ import psutil
 import base64
 import webbrowser
 import sys
+import shutil
+
 
 
 if getattr(sys, 'frozen', False):
@@ -32,10 +34,18 @@ else:
     CONFIG_PATH = os.path.join(base_path, 'core', 'v2ray32', 'config.json')
 
 v2ray_process = None
-db_path = os.path.join(base_path, "database", "profiles.db")
+db_original_path = os.path.join(base_path, "database", "profiles.db")
+db_path = os.path.join(os.getenv('APPDATA'), "V2rayAGN", "profiles.db")
 start_time = None
 data_sent = 0
 data_received = 0
+
+def ensure_db():
+    if not os.path.exists(db_path):
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+        shutil.copyfile(db_original_path, db_path)
+
+
 
 # init db
 def init_db():
@@ -150,7 +160,7 @@ def edit_profile():
             editor.title(f"Edit Profile - {profile_name}")
 
             
-            app_icon = ImageTk.PhotoImage(file='resources\\img\\app_icon.png')
+            app_icon = ImageTk.PhotoImage(file=os.path.join(base_path, 'resources', 'img', 'app_icon.png'))
             editor.iconphoto(False, app_icon)
 
             editor.geometry("600x400")
@@ -269,7 +279,7 @@ def generate_v2ray_config(config_json, profile_name):
 def on_import():
     dialog = tk.Toplevel(app)
     dialog.title("Import Config")
-    app_icon = ImageTk.PhotoImage(file='resources\\img\\app_icon.png')
+    app_icon = ImageTk.PhotoImage(file=os.path.join(base_path, 'resources', 'img', 'app_icon.png'))
     dialog.iconphoto(False, app_icon)
     dialog.geometry("400x300")
     
@@ -626,6 +636,7 @@ center_window(app)
 app.resizable(False, False)
 
 # init db
+ensure_db()
 init_db()
 
 
