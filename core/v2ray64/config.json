@@ -1,0 +1,102 @@
+{
+    "_comment": {
+        "remark": ""
+    },
+    "log": {
+        "access": "",
+        "error": "",
+        "loglevel": "warning",
+        "dnsLog": false
+    },
+    "inbounds": [
+        {
+            "tag": "in_proxy",
+            "port": 10808,
+            "protocol": "socks",
+            "listen": "127.0.0.1",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        },
+        {
+            "tag": "http",
+            "port": 10809,
+            "protocol": "http",
+            "listen": "127.0.0.1",
+            "settings": {
+                "userLevel": 8
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "ukx-1.openv2ray.com",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "4f17e173-4af9-5041-9662-f6c27e0decfd",
+                                "security": "auto",
+                                "level": 8,
+                                "encryption": "none",
+                                "flow": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "wsSettings": {
+                    "path": "/opentunnel?user=opentunnel.net-khaledagn",
+                    "headers": {
+                        "Host": "www.whatsapp.com"
+                    }
+                },
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "serverName": "www.whatsapp.com",
+                    "show": false,
+                    "publicKey": "",
+                    "shortId": "",
+                    "spiderX": ""
+                }
+            },
+            "mux": {
+                "enabled": false,
+                "concurrency": 8
+            }
+        },
+        {
+            "tag": "direct",
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIp"
+            }
+        },
+        {
+            "tag": "blackhole",
+            "protocol": "blackhole",
+            "settings": {}
+        }
+    ],
+    "routing": {
+        "domainStrategy": "UseIp",
+        "rules": [],
+        "balancers": []
+    }
+}
