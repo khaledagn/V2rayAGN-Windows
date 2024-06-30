@@ -73,9 +73,7 @@ This command will create an executable in the dist directory.
 
 ## Detailed Explanation of Features
 
-* Importing Configurations
-
-You can import V2Ray configurations from the clipboard or a file. The application supports V2Ray URL formats like vmess://, vless://, trojan://, and ss://.
+* Importing Configurations: You can import V2Ray configurations from the clipboard or a file. The application supports V2Ray URL formats like vmess://, vless://, trojan://, and ss://.
 
 * Exporting Configurations : Export V2Ray configurations to a .v2agn file. The file contains the configuration URL encoded in Base64 format, making it easy to share and import on other devices.
 
