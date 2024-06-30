@@ -25,41 +25,41 @@ Required Python packages: tkinter, PIL, pyperclip, psutil, sqlite3
 Step 1: Clone the Repository
 Clone the V2rayAGN repository to your local machine.
 
-bash
-Copy code
+```bash
 git clone https://github.com/khaledagn/V2rayAGN.git
 cd V2rayAGN
 
 Step 2: Install Dependencies
 Ensure you have Python 3.x installed. Install the required Python packages using pip.
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
+
 Step 3: Run the Application
 Run the main Python script to start the V2rayAGN application.
 
-bash
-Copy code
+```bash
 python main.py
+
 Building the Executable
 To create a standalone executable that can run without Python installed:
 
 Install PyInstaller:
 
-bash
-Copy code
+```bash
 pip install pyinstaller
+
 Generate the Executable:
 
 Use the following PyInstaller command to package the application:
 
-bash
-Copy code
-pyinstaller --noconsole --onefile --add-data "core;core" --add-data "resources;resources" --add-data "database;database" main.py
+```bash
+pyinstaller -w -F -i "resources/img/app_icon.ico"  --add-data "core;core" --add-data "resources;resources" --add-data "database;database" main.py
+
 This command will create an executable in the dist directory.
 
 ## Detailed Explanation of Features
+
 Importing Configurations
 You can import V2Ray configurations from the clipboard or a file. The application supports V2Ray URL formats like vmess://, vless://, trojan://, and ss://.
 
@@ -77,6 +77,7 @@ V2rayAGN can automatically set and clear the system proxy settings, ensuring you
 
 ## Screenshots
 
+![V2rayAGN WINDOWS](screenshots/v2rayagn.PNG)
 
 ## Support and Maintenance
 This project is maintained by Khaled AGN. For updates and support, visit:
