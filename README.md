@@ -39,7 +39,7 @@ Step 1: Clone the Repository
 Clone the V2rayAGN repository to your local machine.
 
 ```
-git clone https://github.com/khaledagn/V2rayAGN.git
+git clone https://github.com/khaledagn/V2rayAGN-Windows.git
 cd V2rayAGN
 ```
 Step 2: Install Dependencies
