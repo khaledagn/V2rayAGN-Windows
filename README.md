@@ -77,16 +77,11 @@ This command will create an executable in the dist directory.
 
 You can import V2Ray configurations from the clipboard or a file. The application supports V2Ray URL formats like vmess://, vless://, trojan://, and ss://.
 
-* Exporting Configurations
+* Exporting Configurations : Export V2Ray configurations to a .v2agn file. The file contains the configuration URL encoded in Base64 format, making it easy to share and import on other devices.
 
-Export V2Ray configurations to a .v2agn file. The file contains the configuration URL encoded in Base64 format, making it easy to share and import on other devices.
+* Editing and Deleting Profiles : Edit the JSON configuration of existing profiles or delete profiles that are no longer needed.
 
-* Editing and Deleting Profiles
-
-Edit the JSON configuration of existing profiles or delete profiles that are no longer needed.
-
-* Starting and Stopping V2Ray Service
-Control the V2Ray service directly from the application. The service runs in the background, and you can monitor its status and statistics.
+* Starting and Stopping V2Ray Service : Control the V2Ray service directly from the application. The service runs in the background, and you can monitor its status and statistics.
 
 * System Proxy Management
 V2rayAGN can automatically set and clear the system proxy settings, ensuring your traffic is routed through the V2Ray proxy.
